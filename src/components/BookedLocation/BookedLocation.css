@@ -1,0 +1,11 @@
+.booked-body{
+    width: 90%;
+    margin: auto;
+}
+
+.hotel-body{
+    display: flex;
+}
+.hotel-img img{
+    width: 350px;
+}

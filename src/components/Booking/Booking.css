@@ -1,0 +1,57 @@
+.form-control{
+    background-color: #f7f5f5 !important;
+    border: none !important;
+    font-weight: bold !important;
+    letter-spacing: .5px;
+}
+.form-control::placeholder{
+    font-weight: bold;
+    color: rgb(223, 223, 223) !important;
+}
+.label{
+    font-weight: 500;
+    color: rgb(148, 148, 148);
+}
+.booking-body{
+    display: flex;
+    align-items: center;
+}
+.booking-body-left{
+
+}
+.card{
+    margin: auto;
+}
+.card-body-custom{
+    width: 550px;
+}
+@media(max-width:1300px){
+    .card-body-custom{
+        width: 500px;
+    }
+}
+@media(max-width:1050px){
+    .card-body-custom{
+        width: 450px;
+    }
+}
+@media(max-width:992px){
+    .card-body-custom{
+        width: 70%;
+    }
+    .styleLocation{
+        width: 80%;
+        margin-bottom: 50px;
+    }
+}
+@media(max-width:850px){
+    .styleLocation{
+        width: 79%;
+    }
+}
+
+@media(max-width:600px){
+    .card-body-custom{
+        width: 80%;
+    }
+}

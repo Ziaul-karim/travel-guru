@@ -1,0 +1,138 @@
+.home{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../Image/Rectangle\ 1.png");
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+}
+.main-row{
+    display: flex;
+}
+
+.swiper-container{
+    width: 80%;
+}
+.styleLocation{
+    width: 70%;
+    margin-left: auto;
+}
+.styleLocation h1{
+    font-size: 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.swiper-button-prev{
+    color: black;
+    padding: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 100% !important;
+    left: 10% !important;
+    margin-top: 20px !important;
+    transition: 0.3s ease;
+}
+.swiper-button-next{
+    color: black;
+    padding: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 100% !important;
+    right: 75% !important;
+    margin-top: 20px !important;
+    transition: 0.3s ease;
+}
+.swiper-button-next:hover{
+    border: 2px solid orange;
+}
+.swiper-button-prev:hover{
+    border: 2px solid orange;
+}
+@media only screen and (max-width: 1500px) {
+    .styleLocation h1{
+        font-size: 45px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+  }
+@media only screen and (max-width: 1300px) {
+    .swiper-button-next{
+        right: 73% !important;
+    }
+    .styleLocation{
+        width: 90%;
+        margin-left: auto;
+    }
+    .swiper-container{
+        width: 70%;
+    }
+  }
+  @media only screen and (max-width: 1150px) {
+      
+    .styleLocation h1{
+        font-size: 40px;
+    }
+    .swiper-container{
+        width: 80%;
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    .swiper-container{
+        width: 60%;
+    }
+    .swiper-button-next{
+        top: 50% !important;
+        right: 0 !important;
+    }
+    .swiper-button-prev{
+        top: 50% !important;
+        left:  0 !important;
+    }
+    .styleLocation{
+        width: 80%;
+        margin-left: auto;
+    }
+    .styleLocation p{
+        width: 60%;
+    }
+    .main-row{
+        display: flex;
+        flex-direction: column;
+    }
+    .main-col-one{
+        order: 2;
+        margin-top: 50px;
+    }
+    .main-col-two{
+        order: 1;
+    }
+  }
+  @media only screen and (max-width: 850px) {
+    .swiper-container{
+        width: 80%;
+    }
+    .styleLocation{
+        width: 90%;
+        margin-left: auto;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .swiper-container{
+        width: 90%;
+    }
+    .styleLocation{
+        width: 90%;
+        margin-left: auto;
+    }
+    .swiper-button-next{
+        top: 50% !important;
+        right: 5 !important;
+    }
+    .swiper-button-prev{
+        top: 50% !important;
+        left:  0 !important;
+    }
+  }
