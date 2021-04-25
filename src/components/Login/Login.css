@@ -50,6 +50,7 @@
     height: 50px;
     border-radius: 30px !important;
     position: relative;
+    font-weight: bold !important;
 }
 
 .button-custom-fb:hover{
@@ -57,6 +58,7 @@
 }
 .button-custom-g:hover{
     border: 1px solid rgb(230, 113, 78) !important;
+    color: rgb(230, 113, 78) !important;
 }
 
 
@@ -79,5 +81,13 @@
         width: 45%;
         margin: auto;
         text-align: center;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .form-body-style{
+        width: 85%;
+    }
+    .button-custom{
+        height: 55px;
     }
   }

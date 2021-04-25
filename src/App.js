@@ -23,8 +23,8 @@ function App() {
   console.log(loggedInUser)
   return (
     <BookingDetails.Provider value={[booking, setBooking]}>
-      <UserDetails.Provider value={[loggedInUser, setLoggedInUser]}>      
-        <Router>     
+      <UserDetails.Provider value={[loggedInUser, setLoggedInUser]}> 
+        <Router>
           <Switch>
             <Route exact path = "/">
               <Home></Home>

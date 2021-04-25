@@ -10,7 +10,7 @@ const LocationDetails = (props) => {
         <Card className={`bg-transparent text-white ${isActive ? 'active' : 'not-active'}`}>
             <Card.Img variant="top" className="img-fluid" src={image} alt="Card image" />
                 <Card.ImgOverlay>
-                    <Card.Title   className='align-bottom'>{name}</Card.Title>                
+                    <Card.Title style={{textTransform:"uppercase"}}>{name}</Card.Title>                
                 </Card.ImgOverlay>
         </Card>
     );

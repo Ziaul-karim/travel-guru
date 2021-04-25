@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
-import firebase from "firebase/app";
-import "firebase/auth";
-
+import React, { useContext, useState } from 'react';
 import { Formik, Form } from 'formik';
 import TextField from './TextField';
 import * as Yup from 'yup';
-
-import firebaseConfig from '../../firebase.config';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
-
-if(firebase.apps.length === 0){
-    firebase.initializeApp(firebaseConfig)
-}
+import { initializeLoginFramework, createUserWithEmailAndPassword } from './loginManager';
+import { UserDetails } from '../../App';
 
 const SignUp = () => {
     const [user, setUser] = useState({
@@ -26,23 +19,16 @@ const SignUp = () => {
         success: false
     })
 
-    const provider = new firebase.auth.GoogleAuthProvider();
+    initializeLoginFramework()
 
-    const googleSignIn = () =>{
-        firebase.auth().signInWithPopup(provider)
-        .then( res => {
-            const {displayName, email} = res.user;
-            const signedInUser = {
-                isSignedIn: true,
-                firstName: displayName,
-                email: email
-            }
-            setUser(signedInUser)
-        })
-        .catch( error =>{
-            console.log(error.message)
-        })
+    const [loggedInUser, setLoggedInUser] = useContext(UserDetails);
+
+    const handleResponse = (res) =>{
+        setUser(res);
     }
+    
+    
+    
 
     const validate = Yup.object({
         firstName: Yup.string()
@@ -60,17 +46,7 @@ const SignUp = () => {
         .required('Confirm password is Required'),
     })
 
-    const updateName = name =>{
-        const user = firebase.auth().currentUser;
-
-        user.updateProfile({
-        displayName: name
-        }).then(function() {
-            console.log("Name Updated Successfully")
-        }).catch(function(error) {
-        // An error happened.
-        });
-    }
+    
     return (
         <div>
             <Header></Header>
@@ -86,21 +62,10 @@ const SignUp = () => {
                 onSubmit={value =>{
                     setUser(value)
                     if(value.email && value.password){
-                        firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+                        createUserWithEmailAndPassword(value.firstName, value.email, value.password)
                         .then(res => {
-                            const newUserInfo = {...user}
-                            newUserInfo.success = true;
-                            newUserInfo.error = "User created Successfully";                        
-                            setUser(newUserInfo);
-                            updateName(value.firstName);
+                            handleResponse(res)
                         })
-                        .catch((error) => {
-                            const newUserInfo = {...user}
-                            newUserInfo.success = false;
-                            newUserInfo.error = error.message;
-                            console.log(error.code)
-                            setUser(newUserInfo)
-                        });
                     }
                 }}
             >
@@ -142,7 +107,6 @@ const SignUp = () => {
                                 <p>Or</p>
                             </div>
                             <button className="btn btn-warning w-100 button-custom button-custom-fb">Continue With Facebook</button>
-                            <button onClick={googleSignIn} className="btn btn-warning w-100 button-custom button-custom-g mt-3">Continue With Google</button>
                         </div>
                     </div>
                 )}

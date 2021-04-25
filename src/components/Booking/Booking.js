@@ -37,8 +37,8 @@ const Booking = () => {
         <div className="home text-light">
             <Header />
             <Container fluid>
-                <div className="p-4" style={{marginTop:'100px'}}>
-                    <Row className="mt-5">
+                <div className="p-4">
+                    <Row className="cardBody">
                         <Col xl={6} lg={6} md={12}>
                             <div  className="styleLocation mr-5">
                                 <h1 className="mb-3">{getLocation.name}</h1>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&display=swap');
 .form-control{
     background-color: #f7f5f5 !important;
     border: none !important;
@@ -12,12 +13,26 @@
     font-weight: 500;
     color: rgb(148, 148, 148);
 }
+
+.styleLocation{
+    width: 70%;
+    margin: auto;
+}
+
+.styleLocation h1{
+    font-size:70px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-family: 'Antonio', sans-serif;
+    letter-spacing: 5px;
+}
+
+.cardBody{
+    margin-top: 200px;
+}
 .booking-body{
     display: flex;
     align-items: center;
-}
-.booking-body-left{
-
 }
 .card{
     margin: auto;
@@ -36,22 +51,48 @@
     }
 }
 @media(max-width:992px){
+    .cardBody{
+        margin-top: -80px;
+    }
     .card-body-custom{
         width: 70%;
     }
+    .cardBody{
+        margin-top: 100px;
+        height: 100%;
+    }
     .styleLocation{
         width: 80%;
+        margin: auto;
         margin-bottom: 50px;
+    }
+    .styleLocation p{
+        width: 100%;
     }
 }
 @media(max-width:850px){
     .styleLocation{
-        width: 79%;
+        width: 80%;
+    }
+    .cardBody{
+        margin-top:30px;
+    }
+}
+@media(max-width:768px){
+    .styleLocation{
+        text-align: center;
+        width: 90%;
+    }
+    .cardBody{
+        margin-top:30px;
+    }
+    .styleLocation h1{
+        font-size:50px;
     }
 }
 
 @media(max-width:600px){
     .card-body-custom{
-        width: 80%;
+        width: 100%;
     }
 }

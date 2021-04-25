@@ -7,8 +7,8 @@ const differentLocations = [
     "hotels": [
       {
         id: 0,
-        image: 'https://i.ibb.co/R260GQJ/Rectangle-26.png',
-        title: 'Light bright airy stylish apt & safe peaceful stay',
+        image: 'https://i.ibb.co/2KGXjvq/Rectangle-27.png',
+        title: 'Light bright airy stylish',
         type: '4 guests  2 bedrooms  2 bed  2 baths ',
         type1: 'Wifi Air conditioning Kitchen',
         type2: 'Cancellation fexibility available',
@@ -17,7 +17,7 @@ const differentLocations = [
       },
       {
         id: 1,
-        image: 'https://i.ibb.co/2KGXjvq/Rectangle-27.png',
+        image: 'https://i.ibb.co/R260GQJ/Rectangle-26.png',
         title: 'Apartment in Lost Panorama',
         type: '4 guests  2 bedrooms  2 bed  2 baths ',
         type1: 'Wifi Air conditioning Kitchen',
@@ -27,7 +27,7 @@ const differentLocations = [
       },
       {
         id: 2,
-        image: 'https://i.ibb.co/R260GQJ/Rectangle-26.png',
+        image: 'https://i.imgur.com/xAhXefg.png',
         title: 'AR Lounge & Pool (r&r + b&b)',
         type: '4 guests  2 bedrooms  2 bed  2 baths ',
         type1: 'Wifi Air conditioning Kitchen',
@@ -46,7 +46,7 @@ const differentLocations = [
       {
         id: 0,
         image: 'https://i.ibb.co/2KGXjvq/Rectangle-27.png',
-        title: 'Light bright airy stylish apt & safe peaceful stay',
+        title: 'Light bright airy stylish',
         type: '4 guests  2 bedrooms  2 bed  2 baths ',
         type1: 'Wifi Air conditioning Kitchen',
         type2: 'Cancellation fexibility available',
@@ -85,7 +85,7 @@ const differentLocations = [
       {
         id: 0,
         image: 'https://i.ibb.co/2KGXjvq/Rectangle-27.png',
-        title: 'Light bright airy stylish apt & safe peaceful stay',
+        title: 'Light bright airy stylish',
         type: '4 guests  2 bedrooms  2 bed  2 baths ',
         type1: 'Wifi Air conditioning Kitchen',
         type2: 'Cancellation fexibility available',

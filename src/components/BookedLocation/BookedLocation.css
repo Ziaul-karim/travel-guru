@@ -3,9 +3,64 @@
     margin: auto;
 }
 
+.row{
+    justify-content: space-between !important;
+}
+
 .hotel-body{
     display: flex;
 }
-.hotel-img img{
+.hotel-body-img{
     width: 350px;
+}
+.hotel-details{
+    margin-left: 20px;
+}
+
+.location-map img{
+    width: 100%;
+    border-radius: 10px;
+}
+.location-map{
+    margin-top: 100px;
+}
+
+@media(max-width:1200px){
+    .hotel-body{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .hotel-body-img{
+        width: 300px;
+    }
+    .hotel-details{
+       width: 80%;
+       margin-top: 20px;
+       margin-left: 0px;
+    }
+}
+@media(max-width:1103px){
+    
+    .hotel-body-img{
+        width: 380px;
+    }
+}
+@media(max-width:886px){
+    
+    .hotel-body-img{
+        width: 300px;
+    }
+}
+@media(max-width:719px){    
+    .hotel-body-img{
+        width: 400px;
+    }
+    .row{
+        justify-content: center !important;
+    }
+}
+@media(max-width:500px){    
+    .hotel-body-img{
+        width: 300px;
+    }
 }

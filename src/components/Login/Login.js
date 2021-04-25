@@ -11,6 +11,7 @@ import * as Yup from 'yup';
 import firebaseConfig from '../../firebase.config';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserDetails } from '../../App';
+import { signInWithEmailAndPassword, handleGoogleSignIn } from './loginManager';
 
 if(firebase.apps.length === 0){
     firebase.initializeApp(firebaseConfig)
@@ -40,6 +41,23 @@ const Login = () => {
         .min(6, 'Password must be at least six characters')
         .required('Password is Required'),
     })
+
+    const handleResponse = (res, redirect) =>{
+        setUser(res);
+        setLoggedInUser(res);
+        if(redirect){
+            history.replace(from);
+        }
+    }
+
+    const googleSignIn = () =>{
+        handleGoogleSignIn()
+        .then(res => {
+            setUser(res);
+            setLoggedInUser(res);
+            history.replace(from);
+        })
+    }
     return (
         <div>
             <Header></Header>
@@ -52,28 +70,12 @@ const Login = () => {
                 validationSchema={validate}
                 onSubmit={value =>{
                     setUser(value)
-                    if(user.email && user.password){
-                        firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-                        .then(res => {
-                            const getUser = firebase.auth().currentUser;
-
-                            if(getUser != null){
-                                const newUserInfo = {...user}
-                                newUserInfo.success = true;
-                                newUserInfo.error = "User Logged in Successfully";   
-                                newUserInfo.name = getUser.displayName;                 
-                                setUser(newUserInfo);
-                                setLoggedInUser(newUserInfo);
-                                history.replace(from);
-                                //console.log("Signed In user Info", res.user)
-                                }                            
-                            })
-                        .catch((error) => {
-                            const newUserInfo = {...user}
-                            newUserInfo.success = false;
-                            newUserInfo.error = error.message;
-                            setUser(newUserInfo)
-                        });
+                    if(value.email && value.password){
+                        signInWithEmailAndPassword(value.email, value.password)
+                        .then(res =>{
+                            console.log(res)
+                            handleResponse(res, res.success)
+                        })
                     }
                 }}
             >
@@ -86,19 +88,17 @@ const Login = () => {
                         <Form onSubmit={formik.handleSubmit} className="form-body-main mr-4">
                             <TextField name="email" type="email" placeholder="Email"></TextField>
                             <TextField name="password" type="password" placeholder="Password"></TextField>
-                            {/* {
-                            newUser ? <button type="submit"  className="btn btn-warning mt-5 w-100">Create an Account</button> 
-                                    : <button type="submit" className="btn btn-warning mt-5 w-100">Login</button>
-                            } */}
+
+                            <div className="forget-pass d-flex justify-content-between mt-3">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
+                                    <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                                </div>
+
+                                <a href="" style={{color:'orange'}}>Forget Password</a>
+                            </div>
                             
                             <button type="submit"  className="btn btn-warning mt-5 w-100">Login</button>
-
-                            {/* <p className="text-center mt-4">{newUser ? "Already Have an Account?" : "Don't have Account?" } 
-                                <span 
-                                    onClick={()=> setNewUser(!newUser)} 
-                                    style={{color:'orange', cursor: 'pointer', fontWeight:'bold'}}>{newUser ? " Login" : " Sign Up"}
-                                </span>
-                            </p> */}
 
                             <p className="text-center mt-4">Don't Have an Account?
                                 <Link to="/signup"
@@ -111,7 +111,8 @@ const Login = () => {
                         <div className="lines mb-5">
                             <p>Or</p>
                         </div>
-                        <button className="btn btn-warning w-100 button-custom button-custom-fb">Continue With Facebook</button>
+                        <button onClick={googleSignIn} className="btn btn-warning w-100 button-custom button-custom-g">Continue With Google</button>
+                        <button className="btn btn-warning w-100 button-custom button-custom-fb  mt-3 disabled" disabled>Continue With Facebook</button>
                     </div>
                 </div>
             )}
