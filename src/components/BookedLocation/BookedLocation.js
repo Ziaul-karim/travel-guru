@@ -31,6 +31,7 @@ const BookedLocation = () => {
                     </div>
                     <div className="col-xl-5">
                         <div className="location-map">
+                            <h1><span style={{color:'red'}}>Sorry!!!</span> Real Map requires API Key</h1>
                             <img src={Map} alt=""/>
                         </div>
                     </div>

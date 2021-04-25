@@ -32,7 +32,7 @@ const Home = () => {
     return (
         <div className="home">            
           <Header></Header>
-          <div className="p-4" style={{marginTop:'100px'}}>
+          <div className="p-4 home-content">
             <div className="row m-0 mt-5 main-row">
               <div className="col-xl-5 col-lg-4 col-md-12  text-white d-flex flex-column main-col-one">
                   <div  className="style-location-home">
